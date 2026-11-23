@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+const linkedinTodo = site.linkedin.startsWith('TODO');
+---
+
+<Base title="Contact" description="Email, LinkedIn, and GitHub.">
+  <h1>Contact</h1>
+  <dl class="contact">
+    <div>
+      <dt class="label">Email</dt>
+      <dd>{site.emails.map((e) => <a class="mono" href={`mailto:${e}`}>{e}</a>)}</dd>
+    </div>
+    <div>
+      <dt class="label">LinkedIn</dt>
+      <dd>
+        {linkedinTodo ? <span class="todo">TODO: LinkedIn profile URL</span> : <a href={site.linkedin}>{site.linkedin.replace(/^https?:\/\/(www\.)?/, '')}</a>}
+      </dd>
+    </div>
+    <div>
+      <dt class="label">GitHub</dt>
+      <dd><a class="mono" href={site.github}>github.com/diegosalamancaa</a></dd>
+    </div>
+  </dl>
+</Base>
+
+<style>
+  .contact { margin: 3rem 0 0; display: grid; gap: 2rem; }
+  .contact div { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; align-items: baseline; }
+  .contact dd { margin: 0; display: flex; flex-direction: column; gap: 0.25rem; }
+  @media (max-width: 40rem) { .contact div { grid-template-columns: 1fr; gap: 0.25rem; } }
+</style>

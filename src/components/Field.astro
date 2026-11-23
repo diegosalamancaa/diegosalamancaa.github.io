@@ -1,0 +1,10 @@
+---
+// Renders a frontmatter string; values starting with "TODO" are highlighted.
+interface Props {
+  value: string;
+}
+const { value } = Astro.props;
+const isTodo = value.trim().startsWith('TODO');
+---
+
+{isTodo ? <span class="todo">{value}</span> : <Fragment>{value}</Fragment>}

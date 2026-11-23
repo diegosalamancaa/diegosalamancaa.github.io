@@ -1,0 +1,24 @@
+{
+  "name": "diegosalamancaa.github.io",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "^7.3.10",
+    "astro": "^7.4.13",
+    "katex": "^0.19.1",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0"
+  },
+  "overrides": {
+    "katex": "$katex"
+  },
+  "engines": {
+    "node": ">=22.23.4"
+  }
+}

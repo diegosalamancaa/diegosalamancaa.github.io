@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getProjects } from '../lib/projects';
+import headshot from '../../content/home/img-02.jpg';
+
+const featured = (await getProjects()).filter((p) => p.data.featured).slice(0, 4);
+---
+
+<Base>
+  <section class="intro">
+    <Image src={headshot} alt="Diego Salamanca Murphy" width={160} height={160} class="headshot" />
+    <div>
+      <h1>Diego Salamanca Murphy</h1>
+      <p class="lede">
+        Engineering student at the University of Pennsylvania (<span class="todo">TODO: major, degree, graduation year</span>).
+        I work on propulsion and robotics hardware: combustor design for Penn Jet Propulsion's Mark II and Mark III
+        micro-turbine engines, fin-can design and flutter analysis for Penn High Power Rocketry, and mechatronics
+        research at Mark Yim's ModLab.
+      </p>
+    </div>
+  </section>
+
+  <div class="section-head">
+    <h2>Selected projects</h2>
+    <a class="label" href="/projects/">All projects</a>
+  </div>
+  <div class="grid">
+    {featured.map((p) => <ProjectCard project={p} />)}
+  </div>
+</Base>
+
+<style>
+  .intro { display: grid; grid-template-columns: 160px 1fr; gap: 2.5rem; align-items: start; }
+  .headshot { width: 160px; height: 160px; object-fit: cover; }
+  .lede { max-width: var(--prose); font-size: 1.125rem; color: var(--muted); margin: 0.75rem 0 0; }
+  @media (max-width: 40rem) {
+    .intro { grid-template-columns: 1fr; gap: 1.5rem; }
+    .headshot { width: 112px; height: 112px; }
+  }
+</style>
