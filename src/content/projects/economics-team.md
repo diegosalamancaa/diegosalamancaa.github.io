@@ -3,10 +3,15 @@ title: US Economics Team Captain
 role: Captain, Mount Hebron High School Economics Team
 dates: 2023 – 2024
 category: Leadership
-summary: Captained a team that represented the United States at the 2024 International Economics Olympiad in Baku (individual bronze); taught college-level economics to 40+ members.
 cover: ../../../content/leadership-experience_u-s-economics-team-captain/img-02.png
+summary: "Captained the team that represented the US at the 2024 International Economics Olympiad in Baku; individual bronze medal."
 featured: false
 order: 60
+gallery:
+  - ../../../content/leadership-experience_u-s-economics-team-captain/img-03.png
+  - ../../../content/leadership-experience_u-s-economics-team-captain/img-04.png
+  - ../../../content/leadership-experience_u-s-economics-team-captain/img-05.png
+  - ../../../content/leadership-experience_u-s-economics-team-captain/img-06.png
 ---
 
 I captained the Mount Hebron High School Economics Team in 2023–2024. The team represented the United States at the 2024 International Economics Olympiad in Baku, Azerbaijan. As captain I taught college-level economics to 40+ members, ran training sessions, and led recruitment and member selection.
@@ -33,13 +38,3 @@ Also: CNBC interview with Steve Liesman. <span class="todo">TODO: link to the CN
 
 ![Maryland Economics Challenge 2024, first place in both divisions](../../../content/leadership-experience_u-s-economics-team-captain/img-02.png)
 *Maryland Economics Challenge 2024: first place, Adam Smith and David Ricardo divisions.*
-
-<span class="todo">TODO: add captions to the images below.</span>
-
-![Economics team, image 3](../../../content/leadership-experience_u-s-economics-team-captain/img-03.png)
-
-![Economics team, image 4](../../../content/leadership-experience_u-s-economics-team-captain/img-04.png)
-
-![Economics team, image 5](../../../content/leadership-experience_u-s-economics-team-captain/img-05.png)
-
-![Economics team, image 6](../../../content/leadership-experience_u-s-economics-team-captain/img-06.png)

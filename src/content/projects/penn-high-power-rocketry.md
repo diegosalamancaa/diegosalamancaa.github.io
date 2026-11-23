@@ -3,10 +3,16 @@ title: Penn High Power Rocketry Fin Can
 role: Mechanical Lead
 dates: 2024 – present
 category: Propulsion
-summary: Fin-can design, MATLAB flutter analysis, and a jigged layup process for Penn's competition rocket; competed at IREC 2025.
 cover: ../../../content/professional-experience_build-lead-penn-high-power-rocketry/img-07.png
+summary: "Fin can design, MATLAB flutter analysis, and a jigged layup process for Penn's competition rocket, taken to IREC 2025."
 featured: true
 order: 2
+gallery:
+  - ../../../content/professional-experience_build-lead-penn-high-power-rocketry/img-03.png
+  - ../../../content/professional-experience_build-lead-penn-high-power-rocketry/img-02.png
+  - ../../../content/professional-experience_build-lead-penn-high-power-rocketry/img-04.png
+  - ../../../content/professional-experience_build-lead-penn-high-power-rocketry/img-05.png
+  - ../../../content/professional-experience_build-lead-penn-high-power-rocketry/img-06.png
 ---
 
 ## 2025–26: Fin Can subteam lead
@@ -39,13 +45,3 @@ I lead the Fin Can subteam, connecting analysis to a repeatable build process.
 ## Mentoring
 
 I mentored new members through the design and construction of their own L1 rockets, and taught rocketry, CAD, and software sessions.
-
-## Gallery
-
-<span class="todo">TODO: add captions to the images below.</span>
-
-![Penn High Power Rocketry, image 4](../../../content/professional-experience_build-lead-penn-high-power-rocketry/img-04.png)
-
-![Penn High Power Rocketry, image 5](../../../content/professional-experience_build-lead-penn-high-power-rocketry/img-05.png)
-
-![Penn High Power Rocketry, image 6](../../../content/professional-experience_build-lead-penn-high-power-rocketry/img-06.png)

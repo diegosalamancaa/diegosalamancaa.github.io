@@ -1,42 +1,161 @@
 ---
-import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import { getProjects } from '../lib/projects';
-import headshot from '../../content/home/img-02.jpg';
+import Reel from '../components/Reel.astro';
+import Field from '../components/Field.astro';
+import { getProjects, reelImages } from '../lib/projects';
+import { site } from '../data/site';
 
-const featured = (await getProjects()).filter((p) => p.data.featured).slice(0, 4);
+const projects = await getProjects();
+const works = projects.filter((p) => p.data.featured);
+const others = projects.filter((p) => !p.data.featured);
+const linkedinTodo = site.linkedin.startsWith('TODO');
 ---
 
 <Base>
-  <section class="intro">
-    <Image src={headshot} alt="Diego Salamanca Murphy" width={160} height={160} class="headshot" />
-    <div>
-      <h1>Diego Salamanca Murphy</h1>
-      <p class="lede">
-        Engineering student at the University of Pennsylvania (<span class="todo">TODO: major, degree, graduation year</span>).
-        I work on propulsion and robotics hardware: combustor design for Penn Jet Propulsion's Mark II and Mark III
-        micro-turbine engines, fin-can design and flutter analysis for Penn High Power Rocketry, and mechatronics
-        research at Mark Yim's ModLab.
-      </p>
+  <section class="hero pad">
+    <h1>
+      I’m Diego Salamanca Murphy. I study engineering at Penn and build combustors, rocket hardware, and small robots.
+    </h1>
+    <div class="hero-actions">
+      <a href="/about/">Read more <span aria-hidden="true">→</span></a>
+      <span class="local-time" data-clock>Philadelphia</span>
+    </div>
+    <nav class="contact-list" aria-label="Contact">
+      <span class="contact-row contact-label muted">Contact</span>
+      <span class="contact-row">
+        <a href={`mailto:${site.emails[0]}`}>Email</a>
+        <button type="button" class="copy-btn" data-copy={site.emails[0]}>Copy email</button>
+      </span>
+      {
+        linkedinTodo ? (
+          <span class="contact-row"><span class="todo">TODO: LinkedIn URL</span></span>
+        ) : (
+          <a class="contact-row" href={site.linkedin}>LinkedIn</a>
+        )
+      }
+      <a class="contact-row" href={site.github}>GitHub</a>
+    </nav>
+    <div class="hero-footer">
+      <a href="#works"><span>Scroll down</span> <strong>for projects</strong> <span aria-hidden="true">↓</span></a>
     </div>
   </section>
 
-  <div class="section-head">
-    <h2>Selected projects</h2>
-    <a class="label" href="/projects/">All projects</a>
+  <section class="works" id="works">
+    {
+      works.map((p, i) => (
+        <article class="project" id={p.id} data-title={p.data.title}>
+          <div class="project-intro pad">
+            <h2><a href={`/projects/${p.id}/`}>{p.data.title}</a></h2>
+            <p class="project-summary"><Field value={p.data.summary} /></p>
+            <ul class="project-meta">
+              <li><Field value={p.data.role} /></li>
+              <li><Field value={p.data.dates} /></li>
+            </ul>
+          </div>
+          <div class="runway pad">
+            <Reel images={reelImages(p)} label={p.data.title} eager={i === 0} />
+            <div>
+              <a class="doc-row" href={`/projects/${p.id}/`}>
+                <strong>Full write-up</strong>
+                <span aria-hidden="true">→</span>
+              </a>
+              {p.data.links.map((l) => (
+                <a class="doc-row" href={l.href}>
+                  <strong>{l.label}</strong>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))
+    }
+    <div class="works-end pad">
+      <a href="/projects/"><span>More</span> <strong>in the full index</strong> <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <div class="toolbar" data-toolbar>
+    <div class="toolbar-title" aria-live="polite"><span data-toolbar-title>{works[0]?.data.title}</span></div>
+    <div class="toolbar-controls">
+      <button type="button" data-step="-1" aria-label="Previous project">↑</button>
+      <button type="button" class="burger" data-open-index aria-label="Project index"><span></span><span></span><span></span></button>
+      <button type="button" data-step="1" aria-label="Next project">↓</button>
+    </div>
   </div>
-  <div class="grid">
-    {featured.map((p) => <ProjectCard project={p} />)}
-  </div>
+
+  <dialog class="index-dialog" data-index aria-label="Project index">
+    <nav>
+      {works.map((p) => <a href={`#${p.id}`} data-index-link={p.id}>{p.data.title}</a>)}
+      {others.map((p) => <a href={`/projects/${p.id}/`}>{p.data.title}</a>)}
+      <a href="/about/">About &amp; experience</a>
+    </nav>
+    <button type="button" class="index-close" data-close-index aria-label="Close index"></button>
+  </dialog>
 </Base>
 
-<style>
-  .intro { display: grid; grid-template-columns: 160px 1fr; gap: 2.5rem; align-items: start; }
-  .headshot { width: 160px; height: 160px; object-fit: cover; }
-  .lede { max-width: var(--prose); font-size: 1.125rem; color: var(--muted); margin: 0.75rem 0 0; }
-  @media (max-width: 40rem) {
-    .intro { grid-template-columns: 1fr; gap: 1.5rem; }
-    .headshot { width: 112px; height: 112px; }
+<script>
+  // Local time in Philadelphia.
+  const clock = document.querySelector<HTMLElement>('[data-clock]');
+  if (clock) {
+    const fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', hour12: false });
+    const tick = () => (clock.textContent = `${fmt.format(new Date())} ET`);
+    tick();
+    setInterval(tick, 30_000);
   }
-</style>
+
+  // Copy email.
+  document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((btn) =>
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.copy!);
+        btn.textContent = 'Copied';
+      } catch {
+        btn.textContent = btn.dataset.copy!;
+      }
+      setTimeout(() => (btn.textContent = 'Copy email'), 1800);
+    }),
+  );
+
+  // Floating toolbar: tracks the project in view.
+  const toolbar = document.querySelector<HTMLElement>('[data-toolbar]')!;
+  const title = document.querySelector<HTMLElement>('[data-toolbar-title]')!;
+  const works = document.querySelector<HTMLElement>('#works')!;
+  const articles = [...document.querySelectorAll<HTMLElement>('.project')];
+  const links = [...document.querySelectorAll<HTMLElement>('[data-index-link]')];
+  let active = 0;
+
+  const setActive = (i: number) => {
+    active = i;
+    title.textContent = articles[i].dataset.title ?? '';
+    links.forEach((l, j) => l.setAttribute('aria-current', String(i === j)));
+  };
+
+  const io = new IntersectionObserver(
+    (entries) => entries.forEach((e) => e.isIntersecting && setActive(articles.indexOf(e.target as HTMLElement))),
+    { rootMargin: '-45% 0px -45% 0px' },
+  );
+  articles.forEach((a) => io.observe(a));
+
+  const showToolbar = () => {
+    const r = works.getBoundingClientRect();
+    toolbar.classList.toggle('visible', r.top < innerHeight * 0.5 && r.bottom > innerHeight * 0.6);
+  };
+  addEventListener('scroll', showToolbar, { passive: true });
+  showToolbar();
+
+  document.querySelectorAll<HTMLButtonElement>('[data-step]').forEach((b) =>
+    b.addEventListener('click', () => {
+      const next = active + Number(b.dataset.step);
+      if (next < 0) scrollTo({ top: 0, behavior: 'smooth' });
+      else if (next >= articles.length) document.querySelector('.works-end')?.scrollIntoView({ behavior: 'smooth' });
+      else articles[next].scrollIntoView({ behavior: 'smooth' });
+    }),
+  );
+
+  // Index overlay.
+  const dialog = document.querySelector<HTMLDialogElement>('[data-index]')!;
+  document.querySelector('[data-open-index]')?.addEventListener('click', () => dialog.showModal());
+  document.querySelector('[data-close-index]')?.addEventListener('click', () => dialog.close());
+  dialog.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => dialog.close()));
+</script>

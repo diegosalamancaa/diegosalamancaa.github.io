@@ -1,0 +1,99 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import Field from '../components/Field.astro';
+import { experience, education } from '../data/experience';
+import { site } from '../data/site';
+import headshot from '../../content/home/img-02.jpg';
+
+const linkedinTodo = site.linkedin.startsWith('TODO');
+---
+
+<Base title="About" description="Background, experience, and contact.">
+  <SiteHeader />
+  <main class="page-shell pad">
+    <p class="eyebrow">About</p>
+    <h1 class="page-title">Diego Salamanca Murphy</h1>
+
+    <div class="big-copy">
+      <p>
+        I’m an engineering student at the University of Pennsylvania
+        (<span class="todo">TODO: major, degree, graduation year</span>).
+      </p>
+      <p>
+        I lead combustor design for Penn Jet Propulsion, lead the fin can for Penn High Power Rocketry, and do
+        mechatronics research in Mark Yim’s ModLab on micro-flyers and multi-terrain robots.
+      </p>
+      <p class="muted">
+        Before Penn I captained my high school’s economics team, which represented the United States at the 2024
+        International Economics Olympiad.
+      </p>
+    </div>
+
+    <section id="experience">
+      <div class="section-head"><h2>Experience</h2></div>
+      <ol class="xp">
+        {
+          experience.map((r, i) => {
+            const inner = (
+              <Fragment>
+                <span class="xp-mark">{String(i + 1).padStart(2, '0')}</span>
+                <div>
+                  <h3>{r.title}</h3>
+                  <div class="xp-org">{r.org}</div>
+                  <span class="xp-period-mobile"><Field value={r.dates} /></span>
+                  <ul class="xp-points">
+                    {r.points.map((pt) => <li><Field value={pt} /></li>)}
+                  </ul>
+                </div>
+                {r.project ? <span class="xp-arrow" aria-hidden="true">→</span> : <span />}
+              </Fragment>
+            );
+            return (
+              <li class="xp-item">
+                <span class="xp-period"><Field value={r.dates} /></span>
+                <span class="xp-rail" aria-hidden="true" />
+                {r.project ? <a class="xp-card" href={`/projects/${r.project}/`}>{inner}</a> : <div class="xp-card">{inner}</div>}
+              </li>
+            );
+          })
+        }
+      </ol>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Education</h2></div>
+      <div class="big-copy">
+        <p>{education.school}</p>
+        <p class="muted"><Field value={education.degree} /></p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head"><h2>Contact</h2></div>
+      <div class="big-copy">
+        {site.emails.map((e) => <a class="doc-row" href={`mailto:${e}`}><strong>{e}</strong><span aria-hidden="true">↗</span></a>)}
+        {
+          linkedinTodo ? (
+            <div class="doc-row"><span class="todo">TODO: LinkedIn URL</span><span /></div>
+          ) : (
+            <a class="doc-row" href={site.linkedin}><strong>LinkedIn</strong><span aria-hidden="true">↗</span></a>
+          )
+        }
+        <a class="doc-row" href={site.github}><strong>GitHub · diegosalamancaa</strong><span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <Image src={headshot} alt="Diego Salamanca Murphy" width={320} height={320} class="about-photo" />
+
+    <div class="works-end">
+      <a href="#top"><span>Back</span> <strong>to top</strong> <span aria-hidden="true">↑</span></a>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .about-photo { width: 10rem; height: 10rem; object-fit: cover; margin-top: clamp(4rem, 8vw, 7rem); filter: grayscale(1); }
+  #contact .big-copy { margin-top: clamp(2rem, 4vw, 3rem); }
+</style>

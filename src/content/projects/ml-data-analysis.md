@@ -3,10 +3,20 @@ title: Machine Learning and Data Analysis Coursework
 role: Student (CIS 5450, CIS 5190, ESE 2030)
 dates: "TODO: semesters"
 category: Research
-summary: Conflict data vs. next-day WTI oil returns on a 50,175-row panel; an 84.3%-accurate headline source classifier (top 10% of class); LSA on US inaugural addresses; a from-scratch neural net.
 cover: ../../../content/academic-projects_machine-learning-data-analysis/img-02.png
-featured: false
-order: 40
+summary: "Conflict data vs. oil returns on a 50,175-row panel, and a headline source classifier at 84.3% test accuracy, top 10% of the class."
+featured: true
+order: 7
+gallery:
+  - ../../../content/academic-projects_machine-learning-data-analysis/img-03.png
+  - ../../../content/academic-projects_machine-learning-data-analysis/img-04.png
+  - ../../../content/academic-projects_machine-learning-data-analysis/img-05.png
+  - ../../../content/academic-projects_machine-learning-data-analysis/img-06.png
+  - ../../../content/academic-projects_machine-learning-data-analysis/img-07.png
+  - ../../../content/academic-projects_machine-learning-data-analysis/img-08.png
+  - ../../../content/academic-projects_machine-learning-data-analysis/img-09.png
+  - ../../../content/academic-projects_machine-learning-data-analysis/img-10.png
+  - ../../../content/academic-projects_machine-learning-data-analysis/img-11.png
 ---
 
 ## CIS 5450: Big Data Analytics (graduate)
@@ -66,25 +76,3 @@ K-means and PCA on a breast-cancer dataset; a trained tree classifier.
 
 ![Training and validation loss and accuracy for three learning rates](../../../content/academic-projects_machine-learning-data-analysis/img-02.png)
 *Neural net training and validation curves for learning rates 0.01, 0.05, 0.1.*
-
-## Gallery
-
-<span class="todo">TODO: add captions to the images below.</span>
-
-![Coursework figure 3](../../../content/academic-projects_machine-learning-data-analysis/img-03.png)
-
-![Coursework figure 4](../../../content/academic-projects_machine-learning-data-analysis/img-04.png)
-
-![Coursework figure 5](../../../content/academic-projects_machine-learning-data-analysis/img-05.png)
-
-![Coursework figure 6](../../../content/academic-projects_machine-learning-data-analysis/img-06.png)
-
-![Coursework figure 7](../../../content/academic-projects_machine-learning-data-analysis/img-07.png)
-
-![Coursework figure 8](../../../content/academic-projects_machine-learning-data-analysis/img-08.png)
-
-![Coursework figure 9](../../../content/academic-projects_machine-learning-data-analysis/img-09.png)
-
-![Coursework figure 10](../../../content/academic-projects_machine-learning-data-analysis/img-10.png)
-
-![Coursework figure 11](../../../content/academic-projects_machine-learning-data-analysis/img-11.png)

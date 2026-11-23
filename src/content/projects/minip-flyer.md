@@ -3,10 +3,18 @@ title: Mini Piccolissimo Flyer Redesign
 role: Mechatronics Engineering Intern, ModLab
 dates: Summer 2025
 category: Robotics
-summary: Redesigning the world's smallest single-actuator drone, from a 34 mm baseline toward a 27.8 mm variant with lateral control, using coupled FEA/CFD, an inertia-stability ML model, and Bayesian-optimized propellers.
 cover: ../../../content/professional-experience_mechatronics-engineering-intern-modlab/img-06.jpg
+summary: "Redesigning the world's smallest single-actuator drone, from a 34 mm baseline toward a 27.8 mm variant with lateral control."
 featured: true
 order: 3
+gallery:
+  - ../../../content/professional-experience_mechatronics-engineering-intern-modlab/img-09.jpg
+  - ../../../content/professional-experience_mechatronics-engineering-intern-modlab/img-08.jpg
+  - ../../../content/professional-experience_mechatronics-engineering-intern-modlab/img-11.png
+  - ../../../content/professional-experience_mechatronics-engineering-intern-modlab/img-03.png
+  - ../../../content/professional-experience_mechatronics-engineering-intern-modlab/img-02.png
+  - ../../../content/professional-experience_mechatronics-engineering-intern-modlab/img-04.png
+  - ../../../content/professional-experience_mechatronics-engineering-intern-modlab/img-07.png
 ---
 
 In spring 2025 I was selected for the Quantum Space Kerry Wisnosky internship, a fully funded mechatronics internship given to one Penn Engineering student per year. Over the summer I worked on the Mini Piccolissimo (MiniP), the smallest single-actuator drone in the world, originally designed and built at Mark Yim's ModLab. My focus was the wing frame, propeller geometry, and the relationship between propulsion and drag.

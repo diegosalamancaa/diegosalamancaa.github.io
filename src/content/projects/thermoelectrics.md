@@ -3,10 +3,14 @@ title: Thermoelectric Film Characterization
 role: Thermoelectrics Intern, FlexMeshed Lab
 dates: "TODO: dates"
 category: Research
-summary: Seebeck test setup, Hall-effect conductivity analysis in MATLAB, and MXene-based ink formulations for thermoelectric strips; zinc battery cell testing.
 cover: ../../../content/professional-experience_thermoelectrics-intern-university-of-maryland/img-05.png
-featured: false
-order: 20
+summary: "Seebeck testing, Hall-effect conductivity analysis, and MXene-based ink formulations for thermoelectric strips."
+featured: true
+order: 6
+gallery:
+  - ../../../content/professional-experience_thermoelectrics-intern-university-of-maryland/img-02.png
+  - ../../../content/professional-experience_thermoelectrics-intern-university-of-maryland/img-03.png
+  - ../../../content/professional-experience_thermoelectrics-intern-university-of-maryland/img-04.png
 ---
 
 At the FlexMeshed Lab at UMBC with Prof. Deepa Madan, I designed and tested thermoelectric strips.

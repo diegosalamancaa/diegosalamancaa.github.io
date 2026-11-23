@@ -1,12 +1,17 @@
 ---
-title: Penn Jet Propulsion Combustors (Mark II / Mark III)
+title: Penn Jet Propulsion Combustors
 role: Combustor Lead
 dates: "TODO: dates"
 category: Propulsion
-summary: Kerosene fuel injection for the Mark II axial micro-turbojet, the first axial turbojet built by a US undergraduate team, and a hydrogen annular combustor for the Mark III micro-turbofan.
 cover: ../../../content/professional-experience_combustor-lead-pjp/img-05.png
+summary: "Kerosene fuel injection for the Mark II, the first axial turbojet built by a US undergraduate team, and a hydrogen combustor for the Mark III turbofan."
 featured: true
 order: 1
+gallery:
+  - ../../../content/professional-experience_combustor-lead-pjp/img-02.png
+  - ../../../content/professional-experience_combustor-lead-pjp/img-03.png
+  - ../../../content/professional-experience_combustor-lead-pjp/img-04.png
+  - ../../../content/professional-experience_combustor-lead-pjp/img-06.png
 ---
 
 ## Mark II: axial micro-turbojet

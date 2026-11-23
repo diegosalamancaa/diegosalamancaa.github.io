@@ -14,9 +14,14 @@ const projects = defineCollection({
       category: z.enum(CATEGORIES),
       summary: z.string(),
       cover: image().optional(),
+      // Extra images shown after the cover in the project's carousel.
+      gallery: z.array(image()).default([]),
+      // Featured projects are the ones stacked on the home page.
       featured: z.boolean().default(false),
-      // Lower numbers sort first on the projects grid and home page.
+      // Lower numbers sort first everywhere.
       order: z.number().default(100),
+      // Extra link rows under the carousel (videos, posters, repos).
+      links: z.array(z.object({ label: z.string(), href: z.string() })).default([]),
     }),
 });
 

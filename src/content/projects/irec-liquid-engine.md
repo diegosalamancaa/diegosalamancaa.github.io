@@ -5,7 +5,7 @@ dates: "TODO: dates"
 category: Propulsion
 summary: "TODO: one-sentence summary with numbers (propellants, thrust, total impulse)."
 featured: false
-order: 6
+order: 9
 ---
 
 M-impulse liquid rocket engine for the International Rocket Engineering Competition (IREC).

@@ -5,7 +5,7 @@ dates: "TODO: dates"
 category: Propulsion
 summary: "TODO: one-sentence summary with numbers (propellants, thrust, burn time)."
 featured: false
-order: 7
+order: 10
 ---
 
 <span class="todo">TODO: team or independent project, and goal.</span>

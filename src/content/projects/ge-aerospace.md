@@ -5,7 +5,7 @@ dates: "TODO: dates"
 category: Propulsion
 summary: "TODO: one-sentence summary with a number (e.g. what was analyzed or improved, and by how much)."
 featured: false
-order: 5
+order: 8
 ---
 
 Internship at GE Aerospace on turbine hot-section thermal systems.

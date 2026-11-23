@@ -3,10 +3,19 @@ title: HAMR Suspension and Stabilized Gimbal
 role: Research Assistant, ModLab
 dates: "TODO: dates"
 category: Robotics
-summary: Rocker-bogie-style suspension and a three-axis stabilized gimbal for the Holonomic Affordable Multi-Terrain Robot, holding ±20–30° effective attitude range under payload.
 cover: ../../../content/professional-experience_research-assistant-hamr/img-04.png
+summary: "Rocker suspension and a three-axis stabilized gimbal for a holonomic multi-terrain robot, holding ±20–30° attitude range under payload."
 featured: true
 order: 4
+gallery:
+  - ../../../content/professional-experience_research-assistant-hamr/img-07.png
+  - ../../../content/professional-experience_research-assistant-hamr/img-06.png
+  - ../../../content/professional-experience_research-assistant-hamr/img-05.png
+  - ../../../content/professional-experience_research-assistant-hamr/img-02.png
+  - ../../../content/professional-experience_research-assistant-hamr/img-03.png
+links:
+  - label: HAMR 3.0 video
+    href: https://drive.google.com/file/d/1eZZQwF9MmJKsE1gVVql_hR_leqOnINQe/view
 ---
 
 I work on the Holonomic Affordable Multi-Terrain Robot (HAMR) at Mark Yim's ModLab, on the mechanical stack that makes holonomic turret control work off-road: a rocker-bogie-style suspension and a three-axis stabilized gimbal.

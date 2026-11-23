@@ -1,47 +1,62 @@
 ---
 import 'katex/dist/katex.min.css';
-import { Image } from 'astro:assets';
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import Reel from '../../components/Reel.astro';
 import Field from '../../components/Field.astro';
-import { getProjects } from '../../lib/projects';
+import { getProjects, reelImages } from '../../lib/projects';
 
 export async function getStaticPaths() {
   const projects = await getProjects();
-  return projects.map((p) => ({ params: { id: p.id }, props: { project: p } }));
+  return projects.map((p, i) => ({
+    params: { id: p.id },
+    props: { project: p, next: projects[(i + 1) % projects.length] },
+  }));
 }
 
-const { project } = Astro.props;
-const { title, role, dates, category, summary, cover } = project.data;
+const { project, next } = Astro.props;
+const { title, role, dates, category, summary, links } = project.data;
 const { Content } = await render(project);
 ---
 
 <Base title={title} description={summary.startsWith('TODO') ? undefined : summary}>
-  <a class="label back" href={`/projects/#${category.toLowerCase()}`}>Projects / {category}</a>
-  <h1>{title}</h1>
-  <dl class="meta">
-    <div><dt class="label">Role</dt><dd><Field value={role} /></dd></div>
-    <div><dt class="label">Dates</dt><dd><Field value={dates} /></dd></div>
-    <div><dt class="label">Category</dt><dd>{category}</dd></div>
-  </dl>
-  <p class="summary"><Field value={summary} /></p>
-  {
-    cover ? (
-      <Image src={cover} alt={title} widths={[800, 1400]} sizes="(min-width: 72rem) 65rem, 100vw" class="cover" loading="eager" />
-    ) : (
-      <p><span class="todo">TODO: cover image</span></p>
-    )
-  }
-  <article class="prose">
-    <Content />
-  </article>
+  <SiteHeader />
+  <main class="page-shell pad">
+    <p class="eyebrow"><a href={`/projects/#${category.toLowerCase()}`}>{category}</a></p>
+    <h1 class="page-title">{title}</h1>
+    <p class="project-summary"><Field value={summary} /></p>
+
+    <dl class="detail-meta">
+      <div><dt>Role</dt><dd><Field value={role} /></dd></div>
+      <div><dt>Dates</dt><dd><Field value={dates} /></dd></div>
+      <div><dt>Category</dt><dd>{category}</dd></div>
+    </dl>
+
+    <div class="runway">
+      <Reel images={reelImages(project)} label={title} eager />
+      {links.length > 0 && (
+        <div>
+          {links.map((l) => (
+            <a class="doc-row" href={l.href}><strong>{l.label}</strong><span aria-hidden="true">↗</span></a>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <article class="prose">
+      <Content />
+    </article>
+
+    <nav class="next-nav" aria-label="Next project">
+      <a class="doc-row" href={`/projects/${next.id}/`}>
+        <strong><span class="muted">Next</span> {next.data.title}</strong>
+        <span aria-hidden="true">→</span>
+      </a>
+    </nav>
+  </main>
 </Base>
 
 <style>
-  .back { display: inline-block; margin-bottom: 1.5rem; text-decoration: none; }
-  .meta { display: flex; flex-wrap: wrap; gap: 1rem 3rem; margin: 1.5rem 0; }
-  .meta div { margin: 0; }
-  .meta dd { margin: 0.15rem 0 0; }
-  .summary { max-width: var(--prose); font-size: 1.125rem; color: var(--muted); }
-  .cover { width: 100%; max-height: 36rem; object-fit: cover; margin: 2.5rem 0 3rem; }
+  .project-summary { margin-top: clamp(2.5rem, 5vw, 4.5rem); }
 </style>

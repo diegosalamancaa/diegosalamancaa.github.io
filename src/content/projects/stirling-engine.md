@@ -3,10 +3,17 @@ title: Stirling Engine (MEAM 2010)
 role: Designer and machinist (coursework)
 dates: "TODO: semester"
 category: Research
-summary: Designed, machined, and assembled a tabletop Stirling engine in Penn's MEAM 2010; it ran at 1743 RPM, the fastest in the cohort.
 cover: ../../../content/academic-projects_machine-design-manufacturing/img-02.jpg
-featured: false
-order: 30
+summary: "A tabletop Stirling engine designed in SolidWorks and machined on manual and CNC tools. It ran at 1743 RPM, the fastest in the cohort."
+featured: true
+order: 5
+gallery:
+  - ../../../content/academic-projects_machine-design-manufacturing/img-03.png
+  - ../../../content/academic-projects_machine-design-manufacturing/img-04.png
+  - ../../../content/academic-projects_machine-design-manufacturing/img-05.png
+  - ../../../content/academic-projects_machine-design-manufacturing/img-06.png
+  - ../../../content/academic-projects_machine-design-manufacturing/img-07.png
+  - ../../../content/academic-projects_machine-design-manufacturing/img-08.png
 ---
 
 MEAM 2010: Machine Design and Manufacturing at Penn is a project-based course in mechanical design and precision machining. Over the semester each student designs, manufactures, and assembles a working heat engine.
@@ -31,19 +38,3 @@ MEAM 2010: Machine Design and Manufacturing at Penn is a project-based course in
 | Materials | Aluminum, brass, stainless steel, selective 3D printing |
 
 <span class="todo">TODO: category is a placeholder (Research). Change it if a different one fits better.</span>
-
-## Gallery
-
-<span class="todo">TODO: add captions to the images below.</span>
-
-![Stirling engine, image 3](../../../content/academic-projects_machine-design-manufacturing/img-03.png)
-
-![Stirling engine, image 4](../../../content/academic-projects_machine-design-manufacturing/img-04.png)
-
-![Stirling engine, image 5](../../../content/academic-projects_machine-design-manufacturing/img-05.png)
-
-![Stirling engine, image 6](../../../content/academic-projects_machine-design-manufacturing/img-06.png)
-
-![Stirling engine, image 7](../../../content/academic-projects_machine-design-manufacturing/img-07.png)
-
-![Stirling engine, image 8](../../../content/academic-projects_machine-design-manufacturing/img-08.png)
